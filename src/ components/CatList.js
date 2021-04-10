@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import CatCard from './CatCard';
 
 class CatList extends Component {
     render() {
-        // logid here
+        const { cats } = this.props;
 
         return (
-            // XML here
-            <div></div>
+            <ul>
+                {cats.map(cat =>
+                    <li key={cat.id}>
+                        <CatCard
+                            cat={cat}
+                        ></CatCard>
+                    </li>
+                )}
+            </ul>
         )
     }
 }

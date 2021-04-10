@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class CatCard extends Component {
     render() {
-        // logid here
+        const { cat } = this.props;
 
         return (
             // XML here
-            <div></div>
+            <div>{cat.name}</div>
         )
     }
 }

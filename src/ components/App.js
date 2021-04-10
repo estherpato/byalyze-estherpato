@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './Header';
+import CatList from './CatList';
+import Footer from './Footer';
 import '../App.css';
 
 class App extends Component {
@@ -10,6 +13,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if (!!JSON.parse(localStorage.getItem('cats'))) {
+      this.setState({ cats: JSON.parse(localStorage.getItem('cats')) })
+    } else {
+      this.getCatsList();
+    }
+
+    console.log(this.state.cats)
+  }
+
+  getCatsList() {
     const options = {
       headers: {
         'x-api-key': '74fd8279-19b2-4f75-bba5-e879d420047d'
@@ -18,13 +31,23 @@ class App extends Component {
     fetch('https://api.thecatapi.com/v1/breeds', options)
       .then(response => response.json())
       .then(cats => {
-        this.setState({ cats });
+        this.setState({ cats }, this.setLocalStorage);
       });
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('cats', JSON.stringify(this.state.cats));
   }
 
   render() {
     return (
-      <div></div>
+      <Fragment>
+        <Header></Header>
+        <CatList
+          cats={this.state.cats}
+        ></CatList>
+        <Footer></Footer>
+      </Fragment>
     )
   }
 }
