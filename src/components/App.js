@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import CatList from './CatList';
-import Footer from './Footer';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class App extends Component {
 
   componentDidMount() {
     if (!!JSON.parse(localStorage.getItem('cats'))) {
-      this.setState({ cats: JSON.parse(localStorage.getItem('cats')) })
+      this.setState({ cats: JSON.parse(localStorage.getItem('cats')) });
     } else {
       this.getCatsList();
     }
@@ -43,7 +42,6 @@ class App extends Component {
         <CatList
           cats={this.state.cats}
         ></CatList>
-        <Footer></Footer>
       </Fragment>
     )
   }
