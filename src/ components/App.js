@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import CatList from './CatList';
 import Footer from './Footer';
-import '../App.css';
 
 class App extends Component {
   constructor(props) {
@@ -18,8 +17,6 @@ class App extends Component {
     } else {
       this.getCatsList();
     }
-
-    console.log(this.state.cats)
   }
 
   getCatsList() {

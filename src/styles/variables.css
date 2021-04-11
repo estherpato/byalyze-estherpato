@@ -1,0 +1,12 @@
+:root {
+  --primary-font: 'Lato', sans-serif;
+  --primary-color: #776274;
+  --primary-color-dark: #473a45;
+  --secondary-color: #F6D0B1;
+  --text-color: #272727;
+  --light-color: #FFFFFF;
+  --bold-weight: 700;
+  --size-s: 1rem;
+  --size-m: 1.25rem;
+  --size-l: 4rem;
+}
